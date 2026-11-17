@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trung tâm BDVH Điểm 10+</title>
+
+<style>
+/* ============================================================
+   0. RESET & BIẾN TOÀN CỤC
+   ============================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --red-main: #D91A21;
+  --red-dark: #C8102E;
+  --yellow-bright: #FFD200;
+  --gold-bronze: #A67C52;
+  --blue-nav: #2458A6;
+  --blue-block: #2458A6;
+  --orange-title: #F39C12;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #FFFFFF;
+  color: #222;
+}
+
+img { max-width: 100%; display: block; }
+
+
+/* ============================================================
+   1. HEADER
+   ============================================================ */
+.site-header {
+  background: #FFFFFF;
+  width: 100%;
+  min-height: 150px;
+  padding: 10px 0;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  min-height: 130px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.header-left {
+  flex: 0 0 25%;
+  max-width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+}
+
+.logo-emblem {
+  width: 130px;
+  height: 130px;
+  display: block;
+  object-fit: contain;
+}
+
+.header-right {
+  flex: 1 1 75%;
+  max-width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0;
+}
+
+.main-nav {
+  width: 100%;
+  background: var(--blue-nav);
+  border-radius: 6px 0 0 6px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 18px;
+  box-shadow: 0 2px 4px rgba(36, 88, 166, 0.18);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  height: 100%;
+}
+
+.nav-list li { display: flex; align-items: center; height: 100%; }
+
+.nav-list a {
+  color: #FFFFFF;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: 0.4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  padding: 0 2px;
+  position: relative;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-list a:hover { opacity: 0.85; }
+
+.nav-list a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 8px;
+  height: 2px;
+  background: var(--yellow-bright);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav-list a:hover::after { transform: scaleX(1); }
+
+.home-icon {
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.header-title-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 14px 0 6px 18px;
+  min-height: 62px;
+}
+
+.header-title {
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--orange-title);
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   2. HERO SECTION — CHỈ ẢNH BANNER + SLIDER DOTS
+   ============================================================ */
+.hero-section {
+  position: relative;
+  width: 100%;
+  background: #FFFFFF;
+  padding: 0 0 46px;
+}
+
+.hero-banner {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.hero-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.hero-dots {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 20px;
+  background: rgba(255,255,255,0.92);
+  border-radius: 40px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.hero-dots .dot {
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  background: var(--red-dark);
+  opacity: 0.55;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  padding: 0;
+}
+
+.hero-dots .dot:hover { opacity: 0.9; }
+
+.hero-dots .dot.active {
+  width: 34px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 2px solid var(--red-dark);
+  opacity: 1;
+  box-shadow: 0 0 12px rgba(217,26,33,0.55);
+}
+
+
+/* ============================================================
+   3. SECTION 3 KHỐI: TRIẾT LÍ – MÔI TRƯỜNG – GIÁO VIÊN
+   ============================================================ */
+.values-section {
+  background: #FFFFFF;
+  padding: 18px 0 50px;
+}
+
+.values-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  align-items: stretch;
+}
+
+.value-card {
+  background: #FFFFFF;
+  border: 1px solid #E6E6E6;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.value-card:hover {
+  box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+  transform: translateY(-3px);
+}
+
+.value-header {
+  background: var(--blue-block);
+  color: #FFFFFF;
+  text-align: center;
+  padding: 12px 10px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.value-body {
+  padding: 20px 22px 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.value-logo {
+  width: 74px;
+  height: 74px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.value-text {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #3A3A3A;
+  text-align: left;
+  width: 100%;
+}
+
+.value-text strong {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--red-dark);
+}
+
+
+/* ============================================================
+   5. SECTION 4: TRỌNG TÂM & KHÓA HỌC
+   ============================================================ */
+.focus-section {
+  background: #FFFFFF;
+  padding: 50px 0 60px;
+}
+
+.focus-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.section-heading h2 {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: var(--blue-nav);
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+.section-heading h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--red-dark);
+}
+
+.focus-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.focus-intro-text h3 {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  text-transform: uppercase;
+  color: var(--red-dark);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.focus-intro-text p {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 12px;
+}
+.focus-intro-text p strong { color: var(--red-dark); }
+
+.focus-intro-text .focus-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 11px 22px;
+  background: var(--red-dark);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 6px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.focus-intro-text .focus-cta:hover {
+  background: var(--red-main);
+  transform: translateY(-2px);
+}
+
+.focus-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border: 4px solid var(--yellow-bright);
+}
+.focus-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.courses-block { margin-bottom: 10px; }
+
+.courses-subheading {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--blue-nav);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.courses-subheading::before {
+  content: "";
+  width: 6px;
+  height: 24px;
+  border-radius: 3px;
+  background: var(--red-dark);
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.courses-grid + .courses-subheading { margin-top: 40px; }
+
+.course-card {
+  background: #FFFFFF;
+  border: 1px solid #ECECEC;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.13);
+}
+
+.course-card .course-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.course-card .course-body {
+  padding: 16px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.course-card .course-tag {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(217,26,33,0.1);
+  color: var(--red-dark);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.course-card h4 {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 16.5px;
+  color: #1F1F1F;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.course-card p {
+  font-size: 13.5px;
+  color: #666;
+  line-height: 1.55;
+  margin-bottom: 14px;
+  flex: 1;
+}
+
+.course-card .course-link {
+  align-self: flex-start;
+  color: var(--blue-nav);
+  font-weight: 700;
+  font-size: 13.5px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+.course-card .course-link:hover {
+  color: var(--red-dark);
+  gap: 9px;
+}
+
+
+/* ============================================================
+   6. SECTION 5: TIN TỨC "MỚI NHẤT" — SLIDER NGANG
+   ============================================================ */
+.news-section {
+  background: #F7F8FA;
+  padding: 50px 0 60px;
+}
+
+.news-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.news-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 26px;
+}
+.news-head .section-heading { margin-bottom: 0; text-align: left; }
+.news-head .section-heading h2::after { left: 0; transform: none; }
+
+.news-nav {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.news-nav button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--blue-nav);
+  background: #FFFFFF;
+  color: var(--blue-nav);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+.news-nav button:hover {
+  background: var(--blue-nav);
+  color: #FFFFFF;
+}
+
+.news-slider {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.news-slider::-webkit-scrollbar { display: none; }
+
+.news-track {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+  padding: 4px 2px;
+}
+
+.news-card {
+  scroll-snap-align: start;
+  width: 300px;
+  flex-shrink: 0;
+  background: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+  color: inherit;
+}
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.news-card .news-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.news-card .news-body {
+  padding: 16px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  position: relative;
+}
+
+.news-date {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--red-dark);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.news-card h4 {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  color: #1F1F1F;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.news-card .news-more {
+  align-self: flex-start;
+  color: var(--blue-nav);
+  font-weight: 700;
+  font-size: 13.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+.news-card:hover .news-more {
+  color: var(--red-dark);
+  gap: 10px;
+}
+
+
+/* ============================================================
+   7. SECTION 6: HỆ THỐNG CƠ SỞ
+   ============================================================ */
+.branches-section {
+  background: #FFFFFF;
+  padding: 50px 0 40px;
+}
+
+.branches-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.branches-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.branch-card {
+  border: 1px solid #E6E6E6;
+  border-left: 5px solid var(--red-dark);
+  border-radius: 8px;
+  padding: 18px 20px;
+  background: #FFFFFF;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.branch-card:hover {
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+.branch-card h4 {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--blue-nav);
+  margin-bottom: 8px;
+}
+.branch-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.55;
+}
+.branch-card p .branch-phone {
+  color: var(--red-dark);
+  font-weight: 700;
+}
+
+
+/* ============================================================
+   8. FOOTER MỚI — NỀN XANH COBAN
+   ============================================================ */
+.site-footer {
+  background: var(--blue-nav);
+  color: #FFFFFF;
+  padding: 44px 0 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding-bottom: 34px;
+}
+
+.footer-col h4 {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: var(--yellow-bright);
+  letter-spacing: 0.6px;
+  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.footer-col h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 46px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--yellow-bright);
+  opacity: 0.9;
+}
+
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-col ul li {
+  margin-bottom: 9px;
+  line-height: 1.5;
+}
+.footer-col ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.22s ease, padding-left 0.22s ease;
+  display: inline-block;
+}
+.footer-col ul li a:hover {
+  color: var(--yellow-bright);
+  padding-left: 4px;
+}
+
+.footer-branch {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14px;
+  color: #FFFFFF;
+  line-height: 1.5;
+  margin-bottom: 9px;
+}
+.footer-branch svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  fill: var(--yellow-bright);
+}
+
+.footer-fanpage-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border: 1.5px solid rgba(255,255,255,0.55);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+}
+.footer-fanpage-link:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: var(--yellow-bright);
+  transform: translateY(-2px);
+}
+.footer-fanpage-link svg {
+  width: 22px;
+  height: 22px;
+  fill: #FFFFFF;
+  flex-shrink: 0;
+}
+.footer-fanpage-link .fb-name {
+  color: #DCEBFF;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+.footer-fanpage-link:hover .fb-name { color: var(--yellow-bright); }
+
+.footer-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 22px 0 18px;
+  border-top: 1px solid rgba(255,255,255,0.22);
+}
+
+.footer-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  transition: color 0.22s ease;
+}
+.footer-contact-item:hover { color: var(--yellow-bright); }
+.footer-contact-item svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--yellow-bright);
+  flex-shrink: 0;
+}
+.footer-contact-item.phone {
+  color: var(--yellow-bright);
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+.footer-contact-item.phone:hover { color: #FFF3B0; }
+
+.footer-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.28);
+  width: 100%;
+}
+
+.footer-copyright {
+  text-align: center;
+  padding: 16px 0 20px;
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.85);
+}
+.footer-copyright strong { color: var(--yellow-bright); font-weight: 800; }
+
+.footer-partners {
+  background: #1E56A0;
+  padding: 14px 0;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.footer-partners-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  row-gap: 6px;
+  text-align: center;
+}
+.footer-partners a {
+  color: rgba(255,255,255,0.88);
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  padding: 2px 12px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+.footer-partners a:hover { color: var(--yellow-bright); }
+.footer-partners .sep {
+  color: rgba(255,255,255,0.4);
+  font-size: 12.5px;
+  line-height: 1;
+}
+
+
+/* ============================================================
+   9. RESPONSIVE CHUNG
+   ============================================================ */
+@media (max-width: 1024px) {
+  .header-title { font-size: 25px; }
+  .nav-list { gap: 18px; }
+  .nav-list a { font-size: 12.5px; }
+  .logo-emblem { width: 115px; height: 115px; }
+
+  .values-container { gap: 18px; }
+  .value-header { font-size: 16px; padding: 11px 8px; }
+  .value-body { padding: 18px 16px 22px; }
+  .value-text { font-size: 14px; }
+  .value-logo { width: 66px; height: 66px; }
+
+  .section-heading h2 { font-size: 26px; }
+  .focus-intro-text h3 { font-size: 23px; }
+  .courses-grid { gap: 18px; }
+  .news-card { width: 270px; }
+
+  .footer-grid { gap: 28px; }
+  .footer-col h4 { font-size: 15px; }
+  .footer-col ul li a,
+  .footer-branch { font-size: 13.5px; }
+  .footer-partners a { font-size: 12px; padding: 2px 9px; }
+}
+
+@media (max-width: 860px) {
+  .nav-list { gap: 13px; }
+  .nav-list a { font-size: 11.5px; }
+  .header-title { font-size: 21px; }
+  .header-title-wrap { padding-left: 12px; padding-top: 10px; min-height: 50px; }
+  .logo-emblem { width: 100px; height: 100px; }
+
+  .values-container { gap: 14px; }
+  .value-header { font-size: 15px; }
+  .value-text { font-size: 13.5px; line-height: 1.6; }
+  .value-logo { width: 60px; height: 60px; margin-bottom: 12px; }
+
+  .focus-section, .news-section, .branches-section { padding: 38px 0 46px; }
+  .section-heading h2 { font-size: 23px; }
+  .focus-intro { grid-template-columns: 1fr; gap: 24px; }
+  .focus-intro-text { text-align: center; }
+  .focus-intro-text h3 { font-size: 21px; }
+  .courses-grid { grid-template-columns: repeat(2, 1fr); }
+  .branches-grid { grid-template-columns: repeat(2, 1fr); }
+  .news-card { width: 250px; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 26px; }
+  .footer-grid .footer-col:nth-child(3) { grid-column: 1 / -1; }
+  .footer-contact { gap: 20px; }
+  .footer-contact-item.phone { font-size: 17px; }
+}
+
+/* ---- Mobile: Header — logo lớn, căn giữa màn hình ---- */
+@media (max-width: 700px) {
+  /* HEADER */
+  .site-header {
+    min-height: auto;
+    padding: 18px 0;
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: auto;
+    padding: 0 18px;
+    gap: 0;
+  }
+
+  .header-left {
+    flex: 0 0 auto;
+    max-width: none;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .logo-emblem {
+    width: 150px;
+    height: 150px;
+  }
+
+  .header-right { display: none; }
+
+  /* HERO */
+  .hero-section { padding-bottom: 34px; }
+
+  .hero-dots {
+    bottom: -16px;
+    padding: 6px 16px;
+    gap: 10px;
+  }
+
+  /* VALUES */
+  .values-section { padding: 14px 0 40px; }
+
+  .values-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 18px;
+  }
+
+  .value-header { font-size: 16px; padding: 11px 8px; }
+  .value-body { padding: 18px 18px 22px; }
+  .value-text { font-size: 14.5px; }
+  .value-logo { width: 70px; height: 70px; }
+
+  /* FOCUS / NEWS / BRANCHES */
+  .section-heading h2 { font-size: 20px; }
+  .focus-intro-text h3 { font-size: 19px; }
+  .courses-grid { grid-template-columns: 1fr; }
+  .courses-subheading { font-size: 17px; }
+  .news-head { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .news-card { width: 84vw; max-width: 320px; }
+  .branches-grid { grid-template-columns: 1fr; }
+
+  /* FOOTER */
+  .site-footer { padding-top: 34px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; padding-bottom: 26px; }
+  .footer-grid .footer-col:nth-child(3) { grid-column: auto; }
+  .footer-contact { flex-direction: column; gap: 14px; }
+  .footer-contact-item.phone { font-size: 18px; }
+  .footer-partners a { font-size: 11.5px; padding: 2px 7px; white-space: normal; }
+  .footer-partners .sep { display: none; }
+  .footer-partners-inner { gap: 4px 10px; }
+}
+
+@media (max-width: 380px) {
+  .logo-emblem { width: 120px; height: 120px; }
+
+  .hero-dots .dot { width: 9px; height: 9px; }
+  .hero-dots .dot.active { width: 26px; }
+
+  .value-header { font-size: 15px; letter-spacing: 1px; }
+  .value-text { font-size: 13.5px; }
+
+  .footer-col h4 { font-size: 14px; }
+  .footer-col ul li a, .footer-branch { font-size: 13px; }
+  .footer-contact-item { font-size: 13.5px; }
+  .footer-copyright { font-size: 12px; }
+  .footer-partners a { font-size: 10.5px; }
+}
+</style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       SECTION 1: HEADER
+       ============================================================ -->
+  <header class="site-header">
+    <div class="header-container">
+
+      <div class="header-left">
+        <img
+          class="logo-emblem"
+          src="logo.png"
+          alt="Logo Điểm 10+ - Vững kiến thức, chắc tư duy"
+        />
+      </div>
+
+      <div class="header-right">
+        <nav class="main-nav" aria-label="Điều hướng chính">
+          <ul class="nav-list">
+            <li>
+              <a href="#" aria-label="Trang chủ">
+                <img class="home-icon" src="HOME_ICON_URL" alt="Trang chủ" />
+              </a>
+            </li>
+            <li><a href="#">GIỚI THIỆU</a></li>
+            <li><a href="#">CÁC KHÓA HỌC</a></li>
+            <li><a href="#">TÀI LIỆU</a></li>
+            <li><a href="#">TIN TỨC</a></li>
+            <li><a href="#">LIÊN HỆ</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-title-wrap">
+          <h1 class="header-title">TRUNG TÂM BDVH ĐIỂM 10+</h1>
+        </div>
+      </div>
+
+    </div>
+  </header>
+  <!-- ==================== END SECTION 1: HEADER ==================== -->
+
+
+  <!-- ============================================================
+       SECTION 2: HERO — CHỈ ẢNH BANNER + SLIDER DOTS
+       ============================================================ -->
+  <section class="hero-section" aria-label="Banner chính">
+    <div class="hero-banner">
+
+      <img
+        class="hero-banner-img"
+        src="banner1.jpg"
+        alt="Banner khóa học Toán – Văn – Anh – Hóa – Lý – Sinh - Trung tâm BDVH Điểm 10+"
+      />
+
+      <div class="hero-dots" role="tablist" aria-label="Chọn banner">
+        <button class="dot active" role="tab" aria-selected="true" aria-label="Banner 1"></button>
+        <button class="dot" role="tab" aria-selected="false" aria-label="Banner 2"></button>
+        <button class="dot" role="tab" aria-selected="false" aria-label="Banner 3"></button>
+        <button class="dot" role="tab" aria-selected="false" aria-label="Banner 4"></button>
+      </div>
+
+    </div>
+  </section>
+  <!-- ==================== END SECTION 2: HERO ==================== -->
+
+
+  <!-- ============================================================
+       SECTION 3: TRIẾT LÍ – MÔI TRƯỜNG – GIÁO VIÊN
+       ============================================================ -->
+  <section class="values-section" aria-label="Triết lí, Môi trường, Giáo viên">
+    <div class="values-container">
+
+      <article class="value-card">
+        <div class="value-header">TRIẾT LÍ</div>
+        <div class="value-body">
+          <img class="value-logo" src="LOGO_URL" alt="Logo Điểm 10+" />
+          <p class="value-text">
+            Tại Điểm 10+ Chúng tôi không <strong>Tư duy thay học viên</strong> -
+            Chúng tôi giúp học viên <strong>phát triển và làm chủ Tư duy</strong> -
+            Qua đó giúp học viên tự tin kiến tạo <strong>Phương pháp học tập</strong>
+            một cách khoa học, thông minh, và phù hợp nhất.
+          </p>
+        </div>
+      </article>
+
+      <article class="value-card">
+        <div class="value-header">MÔI TRƯỜNG</div>
+        <div class="value-body">
+          <img class="value-logo" src="LOGO_URL" alt="Logo Điểm 10+" />
+          <p class="value-text">
+            Tại Điểm 10+ Chúng tôi không tạo thêm bất kì <strong>áp lực</strong> nào
+            cho học viên - Chúng tôi xây dựng môi trường dạy và học
+            <strong>“Mở - Thân thiện - Hiệu quả”</strong>, giúp học viên yêu thích
+            và xem việc học mỗi ngày là <strong>Một niềm vui</strong>.
+          </p>
+        </div>
+      </article>
+
+      <article class="value-card">
+        <div class="value-header">GIÁO VIÊN</div>
+        <div class="value-body">
+          <img class="value-logo" src="LOGO_URL" alt="Logo Điểm 10+" />
+          <p class="value-text">
+            Tại Điểm 10+ Chúng tôi <strong>thấu hiểu sâu sắc</strong> tính cách,
+            năng lực, điều kiện của từng học viên, qua đó áp dụng hiệu quả phương pháp
+            <strong>“Hướng mục tiêu, cá nhân hóa”</strong>, giúp học viên tự tin,
+            phát huy năng lực học tập một cách <strong>xuất sắc</strong>.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+  <!-- ==================== END SECTION 3: VALUES ==================== -->
+
+
+  <!-- ============================================================
+       SECTION 4: TRỌNG TÂM & KHÓA HỌC
+       ============================================================ -->
+  <section class="focus-section" aria-label="Điểm 10+ chuyên và các khóa học">
+    <div class="focus-container">
+
+      <div class="focus-intro">
+        <div class="focus-intro-text">
+          <h3>ĐIỂM 10+ CHUYÊN</h3>
+          <p>
+            <strong>Điểm 10+ Chuyên</strong> là chương trình học được thiết kế dành riêng
+            cho học sinh có mục tiêu chinh phục các trường <strong>THPT Chuyên</strong>
+            và trường top đầu. Lộ trình cá nhân hóa, đội ngũ giáo viên giàu kinh nghiệm,
+            phương pháp tư duy khoa học giúp học viên tự tin bứt phá.
+          </p>
+          <p>
+            Hãy cùng xem video giới thiệu để hiểu rõ hơn về <strong>triết lí giáo dục</strong>
+            và môi trường học tập tại Điểm 10+.
+          </p>
+          <a class="focus-cta" href="#">Đăng ký tư vấn ngay →</a>
+        </div>
+
+        <div class="focus-video">
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="Giới thiệu Điểm 10+ Chuyên"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="courses-block">
+        <h3 class="courses-subheading">KHÓA HỌC TẠI ĐIỂM 10+</h3>
+        <div class="courses-grid">
+
+          <article class="course-card">
+            <img class="course-img" src="COURSE_IMG_URL" alt="Khóa học Toán" />
+            <div class="course-body">
+              <span class="course-tag">Toán</span>
+              <h4>Toán Tư Duy &amp; Luyện Thi</h4>
+              <p>Xây dựng nền tảng tư duy logic, luyện đề chuyên sâu, bám sát mục tiêu điểm 9–10.</p>
+              <a class="course-link" href="#">Xem chi tiết →</a>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <img class="course-img" src="COURSE_IMG_URL" alt="Khóa học Ngữ Văn" />
+            <div class="course-body">
+              <span class="course-tag">Văn</span>
+              <h4>Ngữ Văn Cảm Thụ &amp; Nghị Luận</h4>
+              <p>Rèn kỹ năng đọc hiểu, cảm thụ văn học và viết nghị luận xã hội – văn học sắc bén.</p>
+              <a class="course-link" href="#">Xem chi tiết →</a>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <img class="course-img" src="COURSE_IMG_URL" alt="Khóa học Tiếng Anh" />
+            <div class="course-body">
+              <span class="course-tag">Anh</span>
+              <h4>Tiếng Anh Giao Tiếp &amp; Luyện Thi</h4>
+              <p>Nâng cao từ vựng – ngữ pháp – phản xạ, luyện thi IELTS, TOEFL và thi THPT hiệu quả.</p>
+              <a class="course-link" href="#">Xem chi tiết →</a>
+            </div>
+          </article>
+
+        </div>
+
+        <h3 class="courses-subheading" style="margin-top:40px;">KHÓA HỌC NỔI BẬT</h3>
+        <div class="courses-grid">
+
+          <article class="course-card">
+            <img class="course-img" src="COURSE_IMG_URL" alt="Khóa Hóa" />
+            <div class="course-body">
+              <span class="course-tag">Hóa</span>
+              <h4>Hóa Học Chuyên Sâu</h4>
+              <p>Hệ thống kiến thức – bài tập vận dụng cao, luyện đề chuyên và thi học sinh giỏi.</p>
+              <a class="course-link" href="#">Xem chi tiết →</a>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <img class="course-img" src="COURSE_IMG_URL" alt="Khóa Lý" />
+            <div class="course-body">
+              <span class="course-tag">Lý</span>
+              <h4>Vật Lý Tư Duy</h4>
+              <p>Phương pháp giải nhanh – hiểu bản chất, chinh phục các dạng bài khó và đề thi chuyên.</p>
+              <a class="course-link" href="#">Xem chi tiết →</a>
+            </div>
+          </article>
+
+          <article class="course-card">
+            <img class="course-img" src="COURSE_IMG_URL" alt="Khóa Sinh" />
+            <div class="course-body">
+              <span class="course-tag">Sinh</span>
+              <h4>Sinh Học Chuyên Đề</h4>
+              <p>Nắm vững lý thuyết – rèn kỹ năng phân tích, luyện đề thi THPT và bồi dưỡng HSG.</p>
+              <a class="course-link" href="#">Xem chi tiết →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- ==================== END SECTION 4: FOCUS ==================== -->
+
+
+  <!-- ============================================================
+       SECTION 5: TIN TỨC "MỚI NHẤT" — SLIDER NGANG
+       ============================================================ -->
+  <section class="news-section" aria-label="Tin tức mới nhất">
+    <div class="news-container">
+
+      <div class="news-head">
+        <div class="section-heading">
+          <h2>TIN TỨC MỚI NHẤT</h2>
+        </div>
+        <div class="news-nav">
+          <button type="button" id="newsPrev" aria-label="Tin trước">‹</button>
+          <button type="button" id="newsNext" aria-label="Tin sau">›</button>
+        </div>
+      </div>
+
+      <div class="news-slider" id="newsSlider">
+        <div class="news-track">
+
+          <a class="news-card" href="#">
+            <img class="news-img" src="NEWS_IMG_URL" alt="Ưu đãi 35%" />
+            <div class="news-body">
+              <span class="news-date">09 Nov</span>
+              <h4>Ưu đãi 35% học phí khi đăng ký sớm các lớp khai giảng tháng 11</h4>
+              <span class="news-more">Xem tiếp →</span>
+            </div>
+          </a>
+
+          <a class="news-card" href="#">
+            <img class="news-img" src="NEWS_IMG_URL" alt="Tuyển sinh tháng 11" />
+            <div class="news-body">
+              <span class="news-date">12 Nov</span>
+              <h4>Tuyển sinh tháng 11: Khai giảng lớp Toán – Văn – Anh – Hóa – Lý – Sinh</h4>
+              <span class="news-more">Xem tiếp →</span>
+            </div>
+          </a>
+
+          <a class="news-card" href="#">
+            <img class="news-img" src="NEWS_IMG_URL" alt="Sinh nhật 11 tuổi" />
+            <div class="news-body">
+              <span class="news-date">20 Nov</span>
+              <h4>Sinh nhật 11 tuổi Điểm 10+ – Chuỗi ưu đãi và quà tặng hấp dẫn</h4>
+              <span class="news-more">Xem tiếp →</span>
+            </div>
+          </a>
+
+          <a class="news-card" href="#">
+            <img class="news-img" src="NEWS_IMG_URL" alt="Lịch học các chi nhánh" />
+            <div class="news-body">
+              <span class="news-date">25 Nov</span>
+              <h4>Lịch học các chi nhánh Quang Trung – Nguyễn Cửu Vân – Tân Canh – Lũy Bán Bích</h4>
+              <span class="news-more">Xem tiếp →</span>
+            </div>
+          </a>
+
+          <a class="news-card" href="#">
+            <img class="news-img" src="NEWS_IMG_URL" alt="Học bổng" />
+            <div class="news-body">
+              <span class="news-date">30 Nov</span>
+              <h4>Học bổng dành cho học sinh xuất sắc – Đồng hành cùng mục tiêu điểm 10</h4>
+              <span class="news-more">Xem tiếp →</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- ==================== END SECTION 5: NEWS ==================== -->
+
+
+  <!-- ============================================================
+       SECTION 6: HỆ THỐNG CƠ SỞ
+       ============================================================ -->
+
+  <!-- ==================== END SECTION 6: BRANCHES ==================== -->
+
+
+  <!-- ============================================================
+       SECTION 7: FOOTER MỚI — NỀN XANH COBAN
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="footer-container">
+
+      <div class="footer-grid">
+
+        <div class="footer-col">
+          <h4>Khóa học nổi bật Điểm 10+</h4>
+          <ul>
+            <li><a href="https://diem10cong.edu.vn/lop-hoc-chuan-bi-vao-lop-1" target="_blank" rel="noopener">Khai giảng lớp tiền tiểu học – hành trang vào lớp 1</a></li>
+            <li><a href="https://diem10cong.edu.vn/tuyen-sinh-cac-lop-boi-duong-cap-2-nam-hoc-2024-2025" target="_blank" rel="noopener">Khai giảng lớp bồi dưỡng cấp 2</a></li>
+            <li><a href="https://diem10cong.edu.vn/luyen-thi-9-len-10-toan-van-anh" target="_blank" rel="noopener">Luyện thi tuyển sinh 9 lên 10</a></li>
+            <li><a href="https://diem10cong.edu.vn/tuyen-sinh-cac-lop-boi-duong-cap-3-nam-hoc-2024-2025" target="_blank" rel="noopener">Khai giảng lớp bồi dưỡng cấp 3</a></li>
+            <li><a href="https://diem10cong.edu.vn/luyen-thi-cap-toc-tot-nghiep-thpt" target="_blank" rel="noopener">Luyện thi cấp tốc THPT 2026</a></li>
+            <li><a href="https://diem10cong.edu.vn/tong-khai-giang-nam-hoc-2021-2022-cap-1-2-3" target="_blank" rel="noopener">Khai giảng lớp trực tuyến - Online</a></li>
+            <li><a href="https://diem10cong.edu.vn/trai-he-ban-tru-tphcm" target="_blank" rel="noopener">Khóa hè bổ ích</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Các cơ sở Điểm 10+</h4>
+          <div class="footer-branch">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <span>Điểm 10+ Quang Trung</span>
+          </div>
+          <div class="footer-branch">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <span>Điểm 10+ Nguyễn Cửu Vân</span>
+          </div>
+          <div class="footer-branch">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <span>Điểm 10+ Tân Canh</span>
+          </div>
+          <div class="footer-branch">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <span>Điểm 10+ Lũy Bán Bích</span>
+          </div>
+          <div class="footer-branch">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <span>Điểm 10+ Nguyễn Văn Đậu</span>
+          </div>
+          <div class="footer-branch">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <span>Điểm 10+ Huỳnh Tấn Phát</span>
+          </div>
+          <div class="footer-branch">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <span>Điểm 10+ Lê Văn Sỹ</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Fanpage Điểm 10+</h4>
+          <a class="footer-fanpage-link" href="https://www.facebook.com/diem10cong" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/>
+            </svg>
+            <span class="fb-name">Điểm 10+</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="footer-contact">
+        <a class="footer-contact-item phone" href="tel:0933398787">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.21 2.2z"/>
+          </svg>
+          <span>0933398787</span>
+        </a>
+
+        <a class="footer-contact-item" href="mailto:tvkh.diem10cong@gmail.com">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          <span>tvkh.diem10cong@gmail.com</span>
+        </a>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-copyright">
+        Bản quyền của <strong>Điểm 10+</strong> © 2026
+      </div>
+
+    </div>
+
+    <div class="footer-partners">
+      <div class="footer-partners-inner">
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Tiếng Anh giao tiếp</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Tiếng Hàn giao tiếp</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Tiếng Nhật giao tiếp</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Tiếng Trung giao tiếp</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Tiếng Hoa giao tiếp</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Danhlingo</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Trung tâm tiếng Anh</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Trung tâm tiếng Hàn</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Trung tâm tiếng Nhật</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Trung tâm tiếng Trung</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Trung tâm tiếng Hoa</a>
+      </div>
+    </div>
+  </footer>
+  <!-- ==================== END SECTION 7: FOOTER ==================== -->
+
+
+  <!-- ============================================================
+       JAVASCRIPT CHUNG
+       ============================================================ -->
+  <script>
+  (function () {
+    /* ===== Slider dots (Hero) ===== */
+    const dots = document.querySelectorAll('.hero-dots .dot');
+    let current = 0;
+    let autoTimer = null;
+
+    function setActive(index) {
+      dots.forEach(function (d, i) {
+        d.classList.toggle('active', i === index);
+        d.setAttribute('aria-selected', i === index ? 'true' : 'false');
+      });
+      current = index;
+    }
+
+    function nextSlide() {
+      setActive((current + 1) % dots.length);
+    }
+
+    function startAuto() {
+      stopAuto();
+      autoTimer = setInterval(nextSlide, 3500);
+    }
+
+    function stopAuto() {
+      if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+    }
+
+    if (dots.length) {
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () {
+          setActive(i);
+          startAuto();
+        });
+      });
+
+      const dotsWrap = document.querySelector('.hero-dots');
+      if (dotsWrap) {
+        dotsWrap.addEventListener('mouseenter', stopAuto);
+        dotsWrap.addEventListener('mouseleave', startAuto);
+      }
+
+      startAuto();
+    }
+
+    /* ===== Active menu demo ===== */
+    const navLinks = document.querySelectorAll('.nav-list a');
+    navLinks.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        navLinks.forEach(function (l) { l.classList.remove('active'); });
+        link.classList.add('active');
+      });
+    });
+
+    /* ===== Slider tin tức trượt ngang ===== */
+    const newsSlider = document.getElementById('newsSlider');
+    const newsPrev = document.getElementById('newsPrev');
+    const newsNext = document.getElementById('newsNext');
+
+    if (newsSlider && newsPrev && newsNext) {
+      function getScrollStep() {
+        const card = newsSlider.querySelector('.news-card');
+        if (!card) return 300;
+        const style = getComputedStyle(newsSlider.querySelector('.news-track'));
+        const gap = parseInt(style.columnGap || style.gap || 22, 10) || 22;
+        return card.getBoundingClientRect().width + gap;
+      }
+
+      newsNext.addEventListener('click', function () {
+        newsSlider.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+      });
+
+      newsPrev.addEventListener('click', function () {
+        newsSlider.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+      });
+
+      let isDown = false, startX = 0, startScroll = 0;
+      newsSlider.addEventListener('mousedown', function (e) {
+        isDown = true;
+        newsSlider.style.cursor = 'grabbing';
+        startX = e.pageX;
+        startScroll = newsSlider.scrollLeft;
+      });
+      newsSlider.addEventListener('mouseleave', function () {
+        isDown = false;
+        newsSlider.style.cursor = '';
+      });
+      newsSlider.addEventListener('mouseup', function () {
+        isDown = false;
+        newsSlider.style.cursor = '';
+      });
+      newsSlider.addEventListener('mousemove', function (e) {
+        if (!isDown) return;
+        e.preventDefault();
+        newsSlider.scrollLeft = startScroll - (e.pageX - startX);
+      });
+    }
+  })();
+  </script>
+
+</body>
+</html>
