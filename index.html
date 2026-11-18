@@ -86,21 +86,12 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  gap: 26px;
   padding: 0 18px;
   box-shadow: 0 2px 4px rgba(36, 88, 166, 0.18);
 }
 
-.nav-list {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 26px;
-  height: 100%;
-}
-
-.nav-list li { display: flex; align-items: center; height: 100%; }
-
-.nav-list a {
+.main-nav > a {
   color: #FFFFFF;
   text-decoration: none;
   text-transform: uppercase;
@@ -118,9 +109,9 @@ img { max-width: 100%; display: block; }
   white-space: nowrap;
 }
 
-.nav-list a:hover { opacity: 0.85; }
+.main-nav > a:hover { opacity: 0.85; }
 
-.nav-list a::after {
+.main-nav > a::after {
   content: "";
   position: absolute;
   left: 0; right: 0; bottom: 8px;
@@ -131,7 +122,7 @@ img { max-width: 100%; display: block; }
   transition: transform 0.25s ease;
 }
 
-.nav-list a:hover::after { transform: scaleX(1); }
+.main-nav > a:hover::after { transform: scaleX(1); }
 
 .home-icon {
   width: 17px;
@@ -913,8 +904,8 @@ img { max-width: 100%; display: block; }
    ============================================================ */
 @media (max-width: 1024px) {
   .header-title { font-size: 25px; }
-  .nav-list { gap: 18px; }
-  .nav-list a { font-size: 12.5px; }
+  .main-nav { gap: 18px; }
+  .main-nav > a { font-size: 12.5px; }
   .logo-emblem { width: 115px; height: 115px; }
 
   .values-container { gap: 18px; }
@@ -936,8 +927,8 @@ img { max-width: 100%; display: block; }
 }
 
 @media (max-width: 860px) {
-  .nav-list { gap: 13px; }
-  .nav-list a { font-size: 11.5px; }
+  .main-nav { gap: 13px; }
+  .main-nav > a { font-size: 11.5px; }
   .header-title { font-size: 21px; }
   .header-title-wrap { padding-left: 12px; padding-top: 10px; min-height: 50px; }
   .logo-emblem { width: 100px; height: 100px; }
@@ -1074,18 +1065,14 @@ img { max-width: 100%; display: block; }
 
       <div class="header-right">
         <nav class="main-nav" aria-label="Điều hướng chính">
-          <ul class="nav-list">
-            <li>
-              <a href="#" aria-label="Trang chủ">
-                <img class="home-icon" src="HOME_ICON_URL" alt="Trang chủ" />
-              </a>
-            </li>
-            <li><a href="#">GIỚI THIỆU</a></li>
-            <li><a href="#">CÁC KHÓA HỌC</a></li>
-            <li><a href="#">TÀI LIỆU</a></li>
-            <li><a href="#">TIN TỨC</a></li>
-            <li><a href="#">LIÊN HỆ</a></li>
-          </ul>
+          <a href="#" aria-label="Trang chủ">
+            <img class="home-icon" src="logo.png" alt="Trang chủ" />
+          </a>
+          <a href="#">GIỚI THIỆU</a>
+          <a href="#">CÁC KHÓA HỌC</a>
+          <a href="tai-lieu.html">TÀI LIỆU</a>
+          <a href="#">TIN TỨC</a>
+          <a href="#">LIÊN HỆ</a>
         </nav>
 
         <div class="header-title-wrap">
@@ -1107,7 +1094,7 @@ img { max-width: 100%; display: block; }
       <img
         class="hero-banner-img"
         src="banner1.jpg"
-        alt="Banner khóa học Toán – Văn – Anh – Hóa – Lý – Sinh - Trung tâm BDVH Điểm 10+"
+        alt="Banner khóa học Toán - Văn - Anh - Hóa - Lý - Sinh - Trung tâm BDVH Điểm 10+"
       />
 
       <div class="hero-dots" role="tablist" aria-label="Chọn banner">
@@ -1527,10 +1514,12 @@ img { max-width: 100%; display: block; }
     }
 
     /* ===== Active menu demo ===== */
-    const navLinks = document.querySelectorAll('.nav-list a');
+    const navLinks = document.querySelectorAll('.main-nav > a');
     navLinks.forEach(function (link) {
       link.addEventListener('click', function (e) {
-        e.preventDefault();
+        if (link.getAttribute('href') === '#') {
+          e.preventDefault();
+        }
         navLinks.forEach(function (l) { l.classList.remove('active'); });
         link.classList.add('active');
       });
