@@ -91,7 +91,8 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 2px 4px rgba(36, 88, 166, 0.18);
 }
 
-.main-nav > a {
+.main-nav > a,
+.main-nav > .course-dropdown > a {
   color: #FFFFFF;
   text-decoration: none;
   text-transform: uppercase;
@@ -109,9 +110,11 @@ img { max-width: 100%; display: block; }
   white-space: nowrap;
 }
 
-.main-nav > a:hover { opacity: 0.85; }
+.main-nav > a:hover,
+.main-nav > .course-dropdown > a:hover { opacity: 0.85; }
 
-.main-nav > a::after {
+.main-nav > a::after,
+.main-nav > .course-dropdown > a::after {
   content: "";
   position: absolute;
   left: 0; right: 0; bottom: 8px;
@@ -122,7 +125,55 @@ img { max-width: 100%; display: block; }
   transition: transform 0.25s ease;
 }
 
-.main-nav > a:hover::after { transform: scaleX(1); }
+.main-nav > a:hover::after,
+.main-nav > .course-dropdown > a:hover::after { transform: scaleX(1); }
+
+.course-dropdown {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-caret {
+  width: 7px;
+  height: 7px;
+  margin: -4px 0 0 2px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.course-submenu {
+  display: none;
+  position: absolute;
+  z-index: 20;
+  top: 100%;
+  left: 0;
+  min-width: 260px;
+  list-style: none;
+  padding: 6px 0;
+  background: var(--blue-nav);
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.course-dropdown:hover .course-submenu,
+.course-dropdown:focus-within .course-submenu { display: block; }
+
+.course-submenu a {
+  display: block;
+  padding: 10px 16px;
+  color: #FFFFFF;
+  text-decoration: none;
+  text-transform: none;
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.course-submenu a:hover,
+.course-submenu a:focus { background: rgba(255, 255, 255, 0.14); }
 
 .home-icon {
   width: 17px;
@@ -696,7 +747,20 @@ img { max-width: 100%; display: block; }
             <img class="home-icon" src="logo.png" alt="Trang chủ" />
           </a>
           <a href="gioi-thieu.html">GIỚI THIỆU</a>
-          <a href="cac-khoa-hoc.html">CÁC KHÓA HỌC</a>
+          <div class="course-dropdown">
+            <a href="cac-khoa-hoc.html" aria-haspopup="true">
+              CÁC KHÓA HỌC <span class="dropdown-caret" aria-hidden="true"></span>
+            </a>
+            <ul class="course-submenu">
+              <li><a href="https://diem10cong.edu.vn/lop-hoc-chuan-bi-vao-lop-1" target="_blank" rel="noopener">Lớp học chuẩn bị vào lớp 1</a></li>
+              <li><a href="https://diem10cong.edu.vn/tuyen-sinh-cac-lop-boi-duong-cap-2-nam-hoc-2024-2025" target="_blank" rel="noopener">Tuyển sinh lớp bồi dưỡng cấp 2</a></li>
+              <li><a href="https://diem10cong.edu.vn/luyen-thi-9-len-10-toan-van-anh" target="_blank" rel="noopener">Luyện thi tuyển sinh lớp 10</a></li>
+              <li><a href="https://diem10cong.edu.vn/tuyen-sinh-cac-lop-boi-duong-cap-3-nam-hoc-2024-2025" target="_blank" rel="noopener">Tuyển sinh lớp bồi dưỡng cấp 3</a></li>
+              <li><a href="https://diem10cong.edu.vn/luyen-thi-cap-toc-tot-nghiep-thpt" target="_blank" rel="noopener">Luyện thi tốt nghiệp THPT</a></li>
+              <li><a href="https://diem10cong.edu.vn/trai-he-ban-tru-tphcm" target="_blank" rel="noopener">Hè bổ ích</a></li>
+              <li><a href="https://diem10cong.edu.vn/tong-khai-giang-nam-hoc-2021-2022-cap-1-2-3" target="_blank" rel="noopener">Học Online</a></li>
+            </ul>
+          </div>
           <a href="tai-lieu.html" class="active">TÀI LIỆU</a>
           <a href="tin-tuc.html">TIN TỨC</a>
           <a href="lien-he.html">LIÊN HỆ</a>
