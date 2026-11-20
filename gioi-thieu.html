@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giới Thiệu - Trung tâm BDVH Điểm 10+</title>
+
+<style>
+/* ============================================================
+   0. RESET & BIẾN TOÀN CỤC
+   ============================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --red-main: #D91A21;
+  --red-dark: #C8102E;
+  --yellow-bright: #FFD200;
+  --blue-nav: #2458A6;
+  --blue-block: #2458A6;
+  --orange-title: #F39C12;
+  --orange-bright: #F39C12;
+  --text-dark: #2B2B2B;
+  --text-gray: #555;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #FFFFFF;
+  color: #222;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--blue-nav); }
+
+
+/* ============================================================
+   1. HEADER (dùng lại)
+   ============================================================ */
+.site-header {
+  background: #FFFFFF;
+  width: 100%;
+  min-height: 150px;
+  padding: 10px 0;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  min-height: 130px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.header-left {
+  flex: 0 0 25%;
+  max-width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+}
+
+.logo-emblem {
+  width: 130px;
+  height: 130px;
+  display: block;
+  object-fit: contain;
+}
+
+.header-right {
+  flex: 1 1 75%;
+  max-width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0;
+}
+
+.main-nav {
+  width: 100%;
+  background: var(--blue-nav);
+  border-radius: 6px 0 0 6px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 18px;
+  box-shadow: 0 2px 4px rgba(36, 88, 166, 0.18);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  height: 100%;
+}
+
+.nav-list li { display: flex; align-items: center; height: 100%; }
+
+.nav-list a {
+  color: #FFFFFF;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: 0.4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  padding: 0 2px;
+  position: relative;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-list a:hover { opacity: 0.85; }
+
+.nav-list a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 8px;
+  height: 2px;
+  background: var(--yellow-bright);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav-list a:hover::after,
+.nav-list a.active::after { transform: scaleX(1); }
+
+.home-icon {
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.header-title-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 14px 0 6px 18px;
+  min-height: 62px;
+}
+
+.header-title {
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--orange-title);
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   2. SECTION TỔNG QUAN
+   ============================================================ */
+.overview-section {
+  background: #FFFFFF;
+  padding: 40px 0 56px;
+}
+
+.overview-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Brand banner --- */
+.overview-brand {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+
+.overview-brand .brand-mini-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.overview-brand .brand-heading {
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 36px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--orange-bright);
+  line-height: 1.15;
+}
+
+.overview-page-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--text-dark);
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.overview-tagline {
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: #777;
+  margin-bottom: 26px;
+}
+
+.overview-intro {
+  font-size: 16px;
+  color: var(--text-gray);
+  line-height: 1.75;
+  max-width: 950px;
+  margin: 0 auto 34px;
+  text-align: justify;
+}
+.overview-intro strong { color: var(--red-dark); }
+
+/* --- 2 ảnh storefront --- */
+.overview-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  max-width: 950px;
+  margin: 0 auto 44px;
+}
+
+.overview-photos .storefront-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.14);
+  /* border: 3px solid var(--yellow-bright); */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.overview-photos .storefront-img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.2);
+}
+
+/* --- Body text --- */
+.overview-body-text p {
+  font-size: 15.5px;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 18px;
+  text-align: justify;
+}
+.overview-body-text p strong { color: var(--red-dark); }
+.overview-body-text p em { color: var(--blue-nav); font-style: italic; }
+
+/* --- 7 chương trình --- */
+.programs-block {
+  margin-top: 38px;
+  padding: 28px 30px;
+  background: var(--red-dark);
+  /* border-left: 5px solid var(--red-dark); */
+  border-radius: 10px;
+}
+
+.programs-lead {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 15.5px;
+  color: white;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.programs-list {
+  list-style: none;
+  counter-reset: prog;
+  padding: 0;
+  margin: 0 0 20px;
+}
+.programs-list li {
+  counter-increment: prog;
+  position: relative;
+  padding-left: 42px;
+  font-size: 15px;
+  color: white;
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+.programs-list li::before {
+  content: counter(prog);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--blue-nav);
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.programs-cta {
+  font-size: 15.5px;
+  color: white;
+  line-height: 1.7;
+}
+.programs-cta a {
+  color: var(--blue-nav);
+  font-weight: 800;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+.programs-cta a:hover { color: var(--red-dark); }
+
+
+/* ============================================================
+   3. SECTION SỨ MỆNH & TẦM NHÌN
+   ============================================================ */
+.mission-section {
+  background: #F7F8FA;
+  padding: 56px 0 60px;
+}
+
+.mission-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px;
+}
+
+.mission-card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 34px 34px 36px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+  /* border-top: 6px solid var(--blue-nav); */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.mission-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+}
+
+.mission-card.vision-card { border-top-color: var(--red-dark); }
+
+.mission-card h2 {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  text-transform: uppercase;
+  color: var(--blue-nav);
+  letter-spacing: 0.8px;
+  margin-bottom: 18px;
+  position: relative;
+  padding-bottom: 12px;
+}
+.mission-card.vision-card h2 { color: var(--red-dark); }
+
+.mission-card h2::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 56px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--yellow-bright);
+}
+
+.mission-card p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 14px;
+  text-align: justify;
+}
+.mission-card p:last-child { margin-bottom: 0; }
+
+
+/* ============================================================
+   4. SECTION GRID ẢNH TỔ CHỨC
+   ============================================================ */
+.gallery-section {
+  background: #FFFFFF;
+  padding: 56px 0 64px;
+}
+
+.gallery-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.gallery-heading {
+  text-align: center;
+  margin-bottom: 34px;
+}
+.gallery-heading h2 {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: var(--blue-nav);
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+.gallery-heading h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--red-dark);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 180px;
+  gap: 14px;
+}
+
+.gallery-grid .g-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #EFEFEF;
+}
+.gallery-grid .g-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.gallery-grid .g-item:hover img { transform: scale(1.06); }
+
+/* Bố cục mosaic: 1 ảnh lớn 2x2, các ảnh còn lại 1x1 */
+.gallery-grid .g-item.g-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.gallery-grid .g-item.g-wide {
+  grid-column: span 2;
+}
+
+
+/* ============================================================
+   5. FLOATING ACTION WIDGETS
+   ============================================================ */
+.floating-widgets {
+  position: fixed;
+  right: 18px;
+  bottom: 22px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fab {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.28);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  position: relative;
+}
+.fab:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+}
+.fab svg { width: 26px; height: 26px; fill: #FFFFFF; }
+
+.fab.fab-phone {
+  background: var(--red-main);
+  animation: fabPulse 2s infinite;
+}
+.fab.fab-zalo { background: #0068FF; }
+.fab.fab-messenger { background: #0084FF; }
+
+@keyframes fabPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(217,26,33,0.5), 0 6px 18px rgba(0,0,0,0.28); }
+  70%  { box-shadow: 0 0 0 14px rgba(217,26,33,0), 0 6px 18px rgba(0,0,0,0.28); }
+  100% { box-shadow: 0 0 0 0 rgba(217,26,33,0), 0 6px 18px rgba(0,0,0,0.28); }
+}
+
+/* Zalo & Messenger: dùng chữ cái thay icon nếu cần */
+.fab .fab-label {
+  font-weight: 900;
+  font-size: 15px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+}
+
+
+/* ============================================================
+   6. FOOTER (dùng lại)
+   ============================================================ */
+.site-footer {
+  background: var(--blue-nav);
+  color: #FFFFFF;
+  padding: 44px 0 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding-bottom: 34px;
+}
+
+.footer-col h4 {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: var(--yellow-bright);
+  letter-spacing: 0.6px;
+  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.footer-col h4::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 46px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--yellow-bright);
+  opacity: 0.9;
+}
+
+.footer-col ul { list-style: none; margin: 0; padding: 0; }
+.footer-col ul li { margin-bottom: 9px; line-height: 1.5; }
+.footer-col ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.22s ease, padding-left 0.22s ease;
+  display: inline-block;
+}
+.footer-col ul li a:hover { color: var(--yellow-bright); padding-left: 4px; }
+
+.footer-branch {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14px;
+  color: #FFFFFF;
+  line-height: 1.5;
+  margin-bottom: 9px;
+}
+.footer-branch svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  fill: var(--yellow-bright);
+}
+
+.footer-fanpage-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border: 1.5px solid rgba(255,255,255,0.55);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+}
+.footer-fanpage-link:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: var(--yellow-bright);
+  transform: translateY(-2px);
+}
+.footer-fanpage-link svg { width: 22px; height: 22px; fill: #FFFFFF; flex-shrink: 0; }
+.footer-fanpage-link .fb-name { color: #DCEBFF; font-weight: 800; letter-spacing: 0.3px; }
+.footer-fanpage-link:hover .fb-name { color: var(--yellow-bright); }
+
+.footer-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 22px 0 18px;
+  border-top: 1px solid rgba(255,255,255,0.22);
+}
+.footer-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  transition: color 0.22s ease;
+}
+.footer-contact-item:hover { color: var(--yellow-bright); }
+.footer-contact-item svg { width: 20px; height: 20px; fill: var(--yellow-bright); flex-shrink: 0; }
+.footer-contact-item.phone { color: var(--yellow-bright); font-size: 18px; letter-spacing: 0.5px; }
+.footer-contact-item.phone:hover { color: #FFF3B0; }
+
+.footer-divider { height: 1px; background: rgba(255,255,255,0.28); width: 100%; }
+
+.footer-copyright {
+  text-align: center;
+  padding: 16px 0 20px;
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.85);
+}
+.footer-copyright strong { color: var(--yellow-bright); font-weight: 800; }
+
+.footer-partners {
+  background: #1E56A0;
+  padding: 14px 0;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.footer-partners-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  row-gap: 6px;
+  text-align: center;
+}
+.footer-partners a {
+  color: rgba(255,255,255,0.88);
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  padding: 2px 12px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+.footer-partners a:hover { color: var(--yellow-bright); }
+.footer-partners .sep { color: rgba(255,255,255,0.4); font-size: 12.5px; line-height: 1; }
+
+
+/* ============================================================
+   7. RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .header-title { font-size: 25px; }
+  .nav-list { gap: 18px; }
+  .nav-list a { font-size: 12.5px; }
+  .logo-emblem { width: 115px; height: 115px; }
+
+  .overview-brand .brand-heading { font-size: 30px; }
+  .overview-page-title { font-size: 28px; }
+  .overview-photos { gap: 18px; }
+
+  .mission-card { padding: 28px 26px 30px; }
+  .mission-card h2 { font-size: 23px; }
+
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 160px; }
+
+  .footer-grid { gap: 28px; }
+  .footer-col h4 { font-size: 15px; }
+  .footer-col ul li a, .footer-branch { font-size: 13.5px; }
+  .footer-partners a { font-size: 12px; padding: 2px 9px; }
+}
+
+@media (max-width: 860px) {
+  .nav-list { gap: 13px; }
+  .nav-list a { font-size: 11.5px; }
+  .header-title { font-size: 21px; }
+  .header-title-wrap { padding-left: 12px; padding-top: 10px; min-height: 50px; }
+  .logo-emblem { width: 100px; height: 100px; }
+
+  .overview-brand .brand-mini-logo { width: 72px; height: 72px; }
+  .overview-brand .brand-heading { font-size: 25px; }
+  .overview-page-title { font-size: 25px; }
+  .overview-tagline { font-size: 15px; }
+  .overview-intro { font-size: 15px; }
+
+  .mission-grid { grid-template-columns: 1fr; gap: 22px; }
+  .mission-card { padding: 24px 22px 26px; }
+  .mission-card h2 { font-size: 22px; }
+
+  .gallery-heading h2 { font-size: 25px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+  .gallery-grid .g-item.g-wide { grid-column: span 2; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 26px; }
+  .footer-grid .footer-col:nth-child(3) { grid-column: 1 / -1; }
+  .footer-contact { gap: 20px; }
+  .footer-contact-item.phone { font-size: 17px; }
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 700px) {
+  .site-header { min-height: auto; padding: 18px 0; }
+
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: auto;
+    padding: 0 18px;
+    gap: 0;
+  }
+
+  .header-left {
+    flex: 0 0 auto;
+    max-width: none;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .logo-emblem { width: 150px; height: 150px; }
+
+  .header-right { display: none; }
+
+  /* OVERVIEW */
+  .overview-section { padding: 28px 0 40px; }
+  .overview-brand { gap: 14px; margin-bottom: 18px; }
+  .overview-brand .brand-mini-logo { width: 60px; height: 60px; }
+  .overview-brand .brand-heading { font-size: 21px; }
+  .overview-page-title { font-size: 23px; }
+  .overview-tagline { font-size: 14px; margin-bottom: 20px; }
+  .overview-intro { font-size: 14.5px; text-align: left; }
+
+  .overview-photos { grid-template-columns: 1fr; gap: 16px; margin-bottom: 32px; }
+  .overview-photos .storefront-img { aspect-ratio: 4 / 5; }
+
+  .overview-body-text p { font-size: 14.5px; text-align: left; }
+
+  .programs-block { padding: 22px 18px; }
+  .programs-list li { font-size: 14px; padding-left: 38px; }
+  .programs-list li::before { width: 26px; height: 26px; font-size: 12px; }
+
+  /* MISSION */
+  .mission-section { padding: 38px 0 44px; }
+  .mission-card { padding: 22px 18px 24px; }
+  .mission-card h2 { font-size: 21px; }
+  .mission-card p { font-size: 14.5px; text-align: left; }
+
+  /* GALLERY */
+  .gallery-section { padding: 38px 0 48px; }
+  .gallery-heading h2 { font-size: 22px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; gap: 10px; }
+  .gallery-grid .g-item.g-large { grid-column: span 2; grid-row: span 1; }
+  .gallery-grid .g-item.g-wide { grid-column: span 2; }
+
+  /* FLOATING */
+  .floating-widgets { right: 12px; bottom: 14px; gap: 10px; }
+  .fab { width: 48px; height: 48px; }
+  .fab svg { width: 22px; height: 22px; }
+
+  /* FOOTER */
+  .site-footer { padding-top: 34px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; padding-bottom: 26px; }
+  .footer-grid .footer-col:nth-child(3) { grid-column: auto; }
+  .footer-contact { flex-direction: column; gap: 14px; }
+  .footer-contact-item.phone { font-size: 18px; }
+  .footer-partners a { font-size: 11.5px; padding: 2px 7px; white-space: normal; }
+  .footer-partners .sep { display: none; }
+  .footer-partners-inner { gap: 4px 10px; }
+}
+
+@media (max-width: 380px) {
+  .logo-emblem { width: 120px; height: 120px; }
+
+  .overview-brand .brand-heading { font-size: 18px; }
+  .overview-page-title { font-size: 20px; }
+
+  .mission-card h2 { font-size: 19px; }
+  .gallery-grid { grid-auto-rows: 120px; }
+
+  .footer-col h4 { font-size: 14px; }
+  .footer-col ul li a, .footer-branch { font-size: 13px; }
+  .footer-contact-item { font-size: 13.5px; }
+  .footer-copyright { font-size: 12px; }
+  .footer-partners a { font-size: 10.5px; }
+}
+</style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       SECTION 1: HEADER (dùng lại)
+       ============================================================ -->
+  <header class="site-header">
+    <div class="header-container">
+
+      <div class="header-left">
+        <a href="index.html" aria-label="Về trang chủ">
+          <img
+            class="logo-emblem"
+            src="logo.png"
+            alt="Logo Điểm 10+ - Vững kiến thức, chắc tư duy"
+          />
+        </a>
+      </div>
+
+      <div class="header-right">
+        <nav class="main-nav" aria-label="Điều hướng chính">
+          <ul class="nav-list">
+            <li>
+              <a href="index.html" aria-label="Trang chủ">
+                <img class="home-icon" src="logo.png" alt="Trang chủ" />
+              </a>
+            </li>
+            <li><a href="gioi-thieu.html" class="active">GIỚI THIỆU</a></li>
+            <li><a href="cac-khoa-hoc.html">CÁC KHÓA HỌC</a></li>
+            <li><a href="tai-lieu.html">TÀI LIỆU</a></li>
+            <li><a href="tin-tuc.html">TIN TỨC</a></li>
+            <li><a href="lien-he.html">LIÊN HỆ</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-title-wrap">
+          <h1 class="header-title">TRUNG TÂM BDVH ĐIỂM 10+</h1>
+        </div>
+      </div>
+
+    </div>
+  </header>
+  <!-- ==================== END HEADER ==================== -->
+
+
+  <!-- ============================================================
+       SECTION 2: TỔNG QUAN
+       ============================================================ -->
+  <section class="overview-section">
+    <div class="overview-container">
+
+      <!-- Brand banner -->
+
+
+      <h2 class="overview-page-title">Tổng quan</h2>
+      <p class="overview-tagline">— Vững kiến thức, chắc tư duy —</p>
+
+      <p class="overview-intro">
+        <strong>Điểm 10+</strong> là mô hình học tập bổ trợ kiến thức kiểu mới với
+        2 hình thức <strong>offline và trực tuyến/online</strong>, được thành lập và
+        phát triển bởi tổ chức <strong>Đầu Tư Giáo Dục và Công Nghệ Bản Việt</strong>.
+      </p>
+
+      <!-- 2 ảnh storefront -->
+      <div class="overview-photos">
+        <img
+          class="storefront-img"
+          src="aaa1.jpg"
+          alt="Cơ sở Điểm 10+ trên phố Sài Gòn"
+        />
+        <img
+          class="storefront-img"
+          src="aaa2.jpg"
+          alt="Cơ sở Điểm 10+ góc phố màu cam"
+        />
+      </div>
+
+      <!-- Body text -->
+      <div class="overview-body-text">
+        <p>
+          Điểm 10+ đem đến cho các em học sinh một môi trường học tập ngoài giờ lý tưởng.
+          Lớp học chỉ từ <strong>6-10</strong> học sinh, với phương pháp giảng dạy
+          <strong><em>hướng mục tiêu, cá nhân hóa</em></strong>, có sự tương tác mạnh
+          hai chiều thầy và trò với sự thấu hiểu sâu sắc. Các em được dìu dắt bởi những
+          người thầy giỏi chuyên môn, tâm lí, các phương pháp truyền đạt, giảng dạy,
+          luyện tập phù hợp với khả năng, trình độ, cũng như tính cách của từng em,
+          qua đó giúp các em học sinh cảm thấy tự tin hơn, hạn chế tính thụ động học sinh
+          thường hay mắc phải, phát huy được tối đa điểm mạnh của từng em.
+        </p>
+        <p>
+          Mỗi buổi học, thầy cô Điểm 10+ tập trung trang bị cho các em kiến thức, bài tập
+          bám sát chương trình trên lớp, vừa hướng dẫn cẩn thận, chi tiết cách thức suy luận,
+          phương pháp tư duy chủ động, khoa học, giúp các em hoàn thiện dần kiến thức,
+          kỹ năng học bài, làm bài. Qua đó, kết quả học tập, điểm số trên lớp của các em
+          sẽ được cải thiện nhanh chóng.
+        </p>
+      </div>
+
+      <!-- 7 chương trình -->
+      <div class="programs-block">
+        <p class="programs-lead">
+          Điểm 10+ xây dựng chương trình giảng dạy bám sát chuẩn kiến thức của
+          Bộ Giáo dục &amp; Đào tạo, đồng thời kết hợp chương trình của các
+          trường quốc tế, bao gồm:
+        </p>
+        <ol class="programs-list">
+          <li>Mở các lớp bồi dưỡng từ căn bản đến nâng cao: Toán – Lý – Hóa – Anh – KHTN lớp 6-12.</li>
+          <li>Các lớp chuyên đề, lớp luyện thi đặc biệt: Tuyển sinh lớp 10, Luyện thi THPT Quốc gia, xét tuyển đại học.</li>
+          <li>Đào tạo Anh văn học thuật từ căn bản đến chuyên sâu: TOEIC, TOEFL, IELTS, ...</li>
+          <li>Chứng chỉ tiếng Anh trẻ em theo chuẩn Cambridge: Starters, Movers, Flyers.</li>
+          <li>Toán, Khoa học bằng tiếng Anh theo chương trình quốc tế: Math, Science, ...</li>
+          <li>Tiếng Anh giao tiếp ứng dụng dành riêng cho người đi làm.</li>
+          <li>Các khóa học Kỹ năng sống, Hè bán trú – TenPlus Summer.</li>
+        </ol>
+        <p class="programs-cta">
+          <a href="lien-he.html">Học phí Điểm 10+</a> — Quý phụ huynh và học viên vui lòng
+          liên hệ trực tiếp để được tư vấn chi tiết và nhận ưu đãi mới nhất.
+        </p>
+      </div>
+
+    </div>
+  </section>
+  <!-- ==================== END TỔNG QUAN ==================== -->
+
+
+  <!-- ============================================================
+       SECTION 3: SỨ MỆNH & TẦM NHÌN
+       ============================================================ -->
+  <section class="mission-section">
+    <div class="mission-container">
+      <div class="mission-grid">
+
+        <!-- Sứ mệnh -->
+        <div class="mission-card">
+          <h2>Sứ mệnh</h2>
+          <p>
+            Kiến thức nhân loại là bất tận, khoa học, công nghệ không ngừng thay đổi.
+            Để mỗi dân tộc, mỗi đất nước phát triển, phồn thịnh, giáo dục được xem là
+            quốc sách hàng đầu.
+          </p>
+          <p>
+            Việt Nam đang trên bước đường phát triển, hội nhập sâu rộng với thế giới.
+            Nền giáo dục nước nhà tuy còn nhiều bất cập, khó khăn, nhưng cũng đã và đang
+            được quan tâm, đầu tư đúng mực.
+          </p>
+          <p>
+            Việc học của con em được nhà trường và gia đình chăm lo chu đáo, tuy nhiên,
+            thời gian, điều kiện không cho phép thầy cô trên trường cũng như quý phụ huynh
+            có thể giảng dạy, kèm cặp đầy đủ, kịp thời cho các em.
+          </p>
+          <p>
+            Trung tâm Điểm 10+ ra đời với sứ mệnh duy nhất, là được đóng góp một phần nhỏ
+            trên bước đường học tập và rèn luyện của các em học sinh, bằng việc tập hợp
+            đội ngũ giáo viên ưu tú, thiết kế chương trình giảng dạy phù hợp, đem đến cho
+            các em một môi trường học ngoài giờ lý tưởng nhất, hiệu quả nhất.
+          </p>
+        </div>
+
+        <!-- Tầm nhìn -->
+        <div class="mission-card vision-card">
+          <h2>Tầm nhìn</h2>
+          <p>
+            Trở thành <strong>trung tâm bồi dưỡng văn hóa hàng đầu</strong> tại TP.HCM
+            và khu vực phía Nam, là địa chỉ tin cậy mà quý phụ huynh và học viên lựa chọn
+            trên hành trình chinh phục tri thức.
+          </p>
+          <p>
+            Điểm 10+ hướng tới xây dựng một <strong>môi trường giáo dục hiện đại, nhân văn
+            và hiệu quả</strong>, nơi mỗi học viên được tôn trọng, thấu hiểu và phát huy
+            tối đa tiềm năng của bản thân.
+          </p>
+          <p>
+            Không ngừng đổi mới phương pháp giảng dạy, ứng dụng công nghệ vào giáo dục,
+            mở rộng hệ thống cơ sở và nâng cao chất lượng đội ngũ giáo viên, để mỗi ngày
+            đến trường của học viên là một ngày <strong>vui – bổ ích – tiến bộ</strong>.
+          </p>
+          <p>
+            Điểm 10+ mong muốn góp phần kiến tạo nên một thế hệ học sinh
+            <strong>vững kiến thức, chắc tư duy</strong>, tự tin bước vào tương lai.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ==================== END SỨ MỆNH & TẦM NHÌN ==================== -->
+
+
+  <!-- ============================================================
+       SECTION 4: HÌNH ẢNH TỔ CHỨC — GRID 7 ẢNH
+       ============================================================ -->
+  <section class="gallery-section">
+    <div class="gallery-container">
+
+      <div class="gallery-heading">
+        <h2>Hình ảnh tổ chức</h2>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Ảnh lớn 2x2 -->
+        <div class="g-item g-large">
+          <img src="co-so-vat-chat-diem-10-cong-3.jpg" alt="Toàn cảnh lớp học Điểm 10+" />
+        </div>
+        <!-- Ảnh thường -->
+        <div class="g-item">
+          <img src="co-so-vat-chat-diem-10-cong-6.jpg" alt="Hoạt động tại Điểm 10+" />
+        </div>
+        <div class="g-item">
+          <img src="co-so-vat-chat-diem-10-cong-7.jpg" alt="Giáo viên và học viên" />
+        </div>
+        <!-- Ảnh rộng 2 cột -->
+        <div class="g-item g-wide">
+          <img src="co-so-vat-chat-diem-10-cong-20.jpg" alt="Sự kiện của trung tâm" />
+        </div>
+        <!-- Ảnh thường -->
+        <div class="g-item">
+          <img src="co-so-vat-chat-diem-10-cong-21.jpg" alt="Cơ sở vật chất Điểm 10+" />
+        </div>
+        <div class="g-item">
+          <img src="dia-chi-diem-10-cong.jpg" alt="Lễ khai giảng" />
+        </div>
+        <div class="g-item">
+          <img src="hinh-hoat-dong-co-so-6.jpg" alt="Trao học bổng cho học viên" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- ==================== END GALLERY ==================== -->
+
+
+  <!-- ============================================================
+       FLOATING ACTION WIDGETS
+       ============================================================ -->
+  <div class="floating-widgets" aria-label="Liên hệ nhanh">
+
+    <!-- Điện thoại -->
+    <a class="fab fab-phone" href="tel:0933398787" aria-label="Gọi điện thoại">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.21 2.2z"/>
+      </svg>
+    </a>
+
+    <!-- Zalo -->
+    <a class="fab fab-zalo" href="https://zalo.me/0933398787" target="_blank" rel="noopener" aria-label="Chat Zalo">
+      <span class="fab-label">Zalo</span>
+    </a>
+
+    <!-- Facebook Messenger -->
+    <a class="fab fab-messenger" href="https://m.me/diem10cong" target="_blank" rel="noopener" aria-label="Chat Messenger">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 2C6.5 2 2 6.14 2 11.26c0 2.9 1.44 5.48 3.7 7.17V22l3.38-1.86c.84.23 1.73.36 2.65.36h.27c5.5 0 10-4.14 10-9.26S17.5 2 12 2zm1.06 12.46-2.55-2.72-4.98 2.72 5.48-5.82 2.61 2.72 4.92-2.72-5.48 5.82z"/>
+      </svg>
+    </a>
+
+  </div>
+  <!-- ==================== END FLOATING WIDGETS ==================== -->
+
+
+  <!-- ============================================================
+       SECTION 5: FOOTER (dùng lại)
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="footer-container">
+
+      <div class="footer-grid">
+
+        <div class="footer-col">
+          <h4>Khóa học nổi bật Điểm 10+</h4>
+          <ul>
+            <li><a href="https://diem10cong.edu.vn/lop-hoc-chuan-bi-vao-lop-1" target="_blank" rel="noopener">Khai giảng lớp tiền tiểu học – hành trang vào lớp 1</a></li>
+            <li><a href="https://diem10cong.edu.vn/tuyen-sinh-cac-lop-boi-duong-cap-2-nam-hoc-2024-2025" target="_blank" rel="noopener">Khai giảng lớp bồi dưỡng cấp 2</a></li>
+            <li><a href="https://diem10cong.edu.vn/luyen-thi-9-len-10-toan-van-anh" target="_blank" rel="noopener">Luyện thi tuyển sinh 9 lên 10</a></li>
+            <li><a href="https://diem10cong.edu.vn/tuyen-sinh-cac-lop-boi-duong-cap-3-nam-hoc-2024-2025" target="_blank" rel="noopener">Khai giảng lớp bồi dưỡng cấp 3</a></li>
+            <li><a href="https://diem10cong.edu.vn/luyen-thi-cap-toc-tot-nghiep-thpt" target="_blank" rel="noopener">Luyện thi cấp tốc THPT 2026</a></li>
+            <li><a href="https://diem10cong.edu.vn/tong-khai-giang-nam-hoc-2021-2022-cap-1-2-3" target="_blank" rel="noopener">Khai giảng lớp trực tuyến - Online</a></li>
+            <li><a href="https://diem10cong.edu.vn/trai-he-ban-tru-tphcm" target="_blank" rel="noopener">Khóa hè bổ ích</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Các cơ sở Điểm 10+</h4>
+          <div class="footer-branch">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <span>Điểm 10+ Quang Trung</span>
+          </div>
+          <div class="footer-branch">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <span>Điểm 10+ Nguyễn Cửu Vân</span>
+          </div>
+          <div class="footer-branch">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <span>Điểm 10+ Tân Canh</span>
+          </div>
+          <div class="footer-branch">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <span>Điểm 10+ Lũy Bán Bích</span>
+          </div>
+          <div class="footer-branch">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <span>Điểm 10+ Nguyễn Văn Đậu</span>
+          </div>
+          <div class="footer-branch">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <span>Điểm 10+ Huỳnh Tấn Phát</span>
+          </div>
+          <div class="footer-branch">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <span>Điểm 10+ Lê Văn Sỹ</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Fanpage Điểm 10+</h4>
+          <a class="footer-fanpage-link" href="https://www.facebook.com/diem10cong" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/>
+            </svg>
+            <span class="fb-name">Điểm 10+</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="footer-contact">
+        <a class="footer-contact-item phone" href="tel:0933398787">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.21 2.2z"/>
+          </svg>
+          <span>0933398787</span>
+        </a>
+
+        <a class="footer-contact-item" href="mailto:tvkh.diem10cong@gmail.com">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          <span>tvkh.diem10cong@gmail.com</span>
+        </a>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-copyright">
+        Bản quyền của <strong>Điểm 10+</strong> © 2026
+      </div>
+
+    </div>
+
+    <div class="footer-partners">
+      <div class="footer-partners-inner">
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Tiếng Anh giao tiếp</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Tiếng Hàn giao tiếp</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Tiếng Nhật giao tiếp</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Tiếng Trung giao tiếp</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Tiếng Hoa giao tiếp</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Danhlingo</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Trung tâm tiếng Anh</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Trung tâm tiếng Hàn</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Trung tâm tiếng Nhật</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Trung tâm tiếng Trung</a>
+        <span class="sep">|</span>
+        <a href="https://danhlingo.edu.vn/" target="_blank" rel="noopener">Trung tâm tiếng Hoa</a>
+      </div>
+    </div>
+  </footer>
+  <!-- ==================== END FOOTER ==================== -->
+
+</body>
+</html>
